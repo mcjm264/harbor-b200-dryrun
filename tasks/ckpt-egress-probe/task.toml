@@ -7,7 +7,7 @@ gpus = 1
 gpu_types = ["T4"]
 
 [agent]
-timeout = 300
+timeout_sec = 300
 
 [verifier]
-timeout = 14400
+timeout_sec = 14400
