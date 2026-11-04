@@ -4,10 +4,10 @@ description = "Infrastructure probe: verify sandbox outbound internet (Hugging F
 [environment]
 dockerfile = "environment/Dockerfile"
 gpus = 1
-gpu_types = ["B200"]
+gpu_types = ["T4"]
 
 [agent]
-timeout = 14400
+timeout = 300
 
 [verifier]
 timeout = 14400
