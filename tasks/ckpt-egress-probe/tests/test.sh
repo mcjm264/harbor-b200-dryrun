@@ -12,9 +12,9 @@ ls -la /tmp/dl.bin
 echo "--- upload 100MB to cloudflare speed endpoint ---"
 head -c 104857600 /dev/urandom > /tmp/up.bin
 curl -s --max-time 300 -o /dev/null -w "up_code=%{http_code} up_bytes=%{size_upload} up_time=%{time_total} up_speed_Bps=%{speed_upload}\n" -X POST --data-binary @/tmp/up.bin https://speed.cloudflare.com/__up
-echo "--- sleep 30 completion test ---"
+echo "--- sleep 900 verifier timeout_sec fix test ---"
 date -u +%s
-sleep 30
+sleep 900
 date -u +%s
 echo "=== probe end ==="
 date -u
