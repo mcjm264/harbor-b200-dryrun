@@ -1,0 +1,13 @@
+name = "ckpt-egress-probe"
+description = "Infrastructure probe: verify sandbox outbound internet (Hugging Face reachability, download/upload throughput for checkpoint transfer) and whether a single phase can run 10+ minutes. No training."
+
+[environment]
+dockerfile = "environment/Dockerfile"
+gpus = 1
+gpu_types = ["B200"]
+
+[agent]
+timeout = 14400
+
+[verifier]
+timeout = 14400
