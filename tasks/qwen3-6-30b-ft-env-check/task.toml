@@ -1,0 +1,13 @@
+name = "qwen3-6-30b-ft-env-check"
+description = "AI research use: full fine-tuning of Qwen3.6-30B-A3B (MoE) on hosted GPU compute (B200), including training runs and checkpoint evaluation. Single-GPU, bounded runs, within plan credits. This task only verifies the training environment before any fine-tuning run: B200 GPU availability, CUDA/PyTorch stack, and Qwen3.6-30B-A3B model config loading. It does not run a full fine-tuning run."
+
+[environment]
+dockerfile = "environment/Dockerfile"
+gpus = 1
+gpu_types = ["B200"]
+
+[agent]
+timeout = 600
+
+[verifier]
+timeout = 600
