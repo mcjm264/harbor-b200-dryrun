@@ -1,0 +1,13 @@
+name = "oracle-exec-probe"
+description = "Probe: verify the oracle agent executes solution/solve.sh in the agent phase on hosted Harbor (short run). The solution records start/end epochs and GPU name to marker files; the verifier checks them."
+
+[environment]
+dockerfile = "environment/Dockerfile"
+gpus = 1
+gpu_types = ["T4"]
+
+[agent]
+timeout_sec = 3600
+
+[verifier]
+timeout_sec = 600
