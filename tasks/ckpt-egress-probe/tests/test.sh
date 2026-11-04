@@ -2,6 +2,8 @@
 set -x
 echo "=== probe start ==="
 date -u
+echo "--- GPU ---"
+nvidia-smi -L
 echo "--- HF reachability ---"
 curl -sI --max-time 30 https://huggingface.co | head -5
 echo "--- download range 200MB from HF (Qwen2.5-0.5B safetensors) ---"
@@ -10,9 +12,9 @@ ls -la /tmp/dl.bin
 echo "--- upload 100MB to cloudflare speed endpoint ---"
 head -c 104857600 /dev/urandom > /tmp/up.bin
 curl -s --max-time 300 -o /dev/null -w "up_code=%{http_code} up_bytes=%{size_upload} up_time=%{time_total} up_speed_Bps=%{speed_upload}\n" -X POST --data-binary @/tmp/up.bin https://speed.cloudflare.com/__up
-echo "--- sleep 14400 phase-length test (will be cancelled after a few minutes) ---"
+echo "--- sleep 30 completion test ---"
 date -u +%s
-sleep 14400
+sleep 30
 date -u +%s
 echo "=== probe end ==="
 date -u
